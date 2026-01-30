@@ -2,6 +2,7 @@
 <html>
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         * {
@@ -24,6 +25,53 @@
         display: none;
         }
 
+        #start-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #181825;
+            z-index: 2; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: opacity 0.5s ease-out; 
+        }
+        #start-screen h1 {
+            color: #a6e3a1;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+        .lang-select-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            min-width: 200px;
+        }
+        .lang-btn {
+            background: transparent;
+            color: #89b4fa;
+            border: 2px solid #89b4fa;
+            padding: 15px 30px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .lang-btn:hover {
+            background-color: #89b4fa;
+            color: #181825;
+            box-shadow: 0 0 15px rgba(137, 180, 250, 0.4);
+        }
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+        
         .top-box {
             height: 10vh;
             width: calc(100% - 10px);
@@ -96,34 +144,46 @@
         h2 { color: #cdd6f4; margin-bottom: 1ch; }
         h3 { color: #cdd6f4; margin-bottom: 1ch; font-size: 1.2rem; }
         p  { margin-bottom: 1ch; }
+        .rtl {
+            direction: rtl;
+            text-align: right;
+        }
     </style>
 </head>
 <body>
-
-    <div class="top-box">
-        <h1>> Hi ;)</h1>
+    <div id="start-screen">
+        <h1>> SELECT LANGUAGE </h1>
+        <div class="lang-select-grid">
+            <button class="lang-btn" onclick="selectLanguage('en')">[ ENGLISH ]</button>
+            <button class="lang-btn" onclick="selectLanguage('ku')">[ KURDISH ]</button>
+            <button class="lang-btn" onclick="selectLanguage('ar')">[ ARABIC ]</button>
+            <button class="lang-btn" onclick="selectLanguage('fa')">[ PERSIAN ]</button>
+        </div>
     </div>
-        <main class="main-content">
-            <h2>Mohammed Abdulcareem Tiher</h2>
-            <p>3rd Year Food Science & Technology Bachelor Student
+    <div class="top-box">
+        <h1 id="greeting">> Hi ;)</h1>
+    </div>
+        <main class="main-content" id="content-area">
+            <h2 id="name">Mohammed Abdulcareem Tiher</h2>
+            <p id="sub-info">3rd Year Food Science & Technology Bachelor Student
             College of Agricultural Engineering Sciences – UNIVERSITY OF DUHOK</p>
 						
-            <h3>{About Me}</h3>
-            <p>I am currently looking for opportunities to improve my skills and for ways to use what I’m learning in university to help out with local projects, gain some real-world experience, and contribute to the food industry in the region.</p>
-            <p>I like to stay tech-savvy and use digital tools to make my work more efficient. I am also multilingual, which helps me research international standards and communicate with different teams</p>
-            <h3>{Languages}</h3>
+            <h3 id="about-head">{About Me}</h3>
+            <p id="about-text1">I am currently looking for opportunities to improve my skills and for ways to use what I’m learning in university to help out with local projects, gain some real-world experience, and contribute to the food industry in the region.</p>
+            <p id="about-text2">I like to stay tech-savvy and use digital tools to make my work more efficient. I am also multilingual, which helps me research international standards and communicate with different teams</p>
+            <h3 id="lang">{Languages}</h3>
             <div class="lang-grid">
                     <div class="lang-item"><span class="label">KURDISH:</span> Native</div>
                     <div class="lang-item"><span class="label">ENGLISH:</span> Advanced (Self-taught)</div>
                     <div class="lang-item"><span class="label">ARABIC:</span> Basic</div>
                     <div class="lang-item"><span class="label">PERSIAN:</span> Basic</div>
             </div>
-            <h3>{Tech Skills}</h3>
+            <h3 id="tech">{Tech Skills}</h3>
             <div class="lang-grid">
                     <div class="lang-item"><span class="label">WEB DEVELOPMENT</span></div>
                     <div class="lang-item"><span class="label">LINUX & SCRIPTING</span></div>
             </div>
-            <h3>{My links}</h3>
+            <h3 id="links">{My links}</h3>
             <footer class="link-footer">
             <a href="https://t.me/mr_uno" class="action-link">[<i class="fa-brands fa-telegram"></i>]</a>
             <a href="https://github.com/Mr-hero1" class="action-link">[<i class="fa-brands fa-github"></i>]</a>
@@ -132,5 +192,87 @@
         </footer>
         </main>
     </div>
+    <script>
+        const translations = {
+        en: {
+            greeting: "> Hi ;)",
+            name: "Mohammed Abdulcareem Tiher",
+            subInfo: "3rd Year Food Science & Technology Bachelor Student\nCollege of Agricultural Engineering Sciences – UNIVERSITY OF DUHOK",
+            aboutHead: "{About Me}",
+            about1: "I am currently looking for opportunities to improve my skills and for ways to use what I’m learning in university to help out with local projects, gain some real-world experience, and contribute to the food industry in the region.",
+            about2: "I like to stay tech-savvy and use digital tools to make my work more efficient. I am also multilingual, which helps me research international standards and communicate with different teams",
+            langHead: "{Languages}",
+            techHead: "{Tech Skills}",
+            linksHead: "{My links}",
+            isRtl: false
+        },
+        ku: {
+            greeting: "> سڵاو ;)",
+            name: "محمد عبدالكريم طاهر",
+            subInfo: "قوتابی قۆناغا سیێ پشکا زانستێن خوارنێ و تەکنەلۆجیا\nکۆلیژا ئەندازیاریا چاندنێ – زانکۆیا دهۆکێ",
+            aboutHead: "{دەربارەی من}",
+            about1: "ئەز نوکە ل دەرفەتان دگەڕێم دا کو شیانێن خۆ پێش بێخەم و ئەو تشتێن ل زانکۆیێ وەردگرم د پرۆژێن خۆجهی دا بکاربینم، بۆ بدەستڤەئینانا ئەزموونا کارێن جیهانی.",
+            about2: "حەز دکەم شارەزا بم د بوارێ تەکنەلۆجیایێ دا و ئامرازێن دیجیتاڵی بکاربینم بۆ کاراتربوونا کارێن خۆ. هەروەسا ئەز چەند زمانان دزانم کو یارمەتیدەرن بۆ لێکۆڵینەڤەیێن نێڤدەولەتی.",
+            langHead: "{زمان}",
+            techHead: "{شیانێن تەکنیکی}",
+            linksHead: "{لینکێن من}",
+            isRtl: true
+        },
+        ar: {
+            greeting: "> مرحباً ;)",
+            name: "محمد عبدالكريم طاهر",
+            subInfo: "طالب السنة الثالثة في علوم الأغذية وتكنولوجياتها\nكلية الهندسة الزراعية – جامعة دهوك",
+            aboutHead: "{عني}",
+            about1: "أبحث حالياً عن فرص لتطوير مهاراتي واستخدام ما أتعلمه في الجامعة للمساهمة في المشاريع المحلية، واكتساب الخبرة العملية في صناعة الأغذية.",
+            about2: "أحب مواكبة التكنولوجيا واستخدام الأدوات الرقمية لجعل عملي أكثر كفاءة. كما أنني أتحدث لغات متعددة مما يساعدني في البحث عن المعايير الدولية.",
+            langHead: "{اللغات}",
+            techHead: "{المهارات التقنية}",
+            linksHead: "{روابطي}",
+            isRtl: true
+        },
+        fa: {
+            greeting: "> سلام ;)",
+            name: "محمد عبدالكريم طاهر",
+            subInfo: "دانشجوی سال سوم علوم و مهندسی صنایع غذایی\nدانشکده مهندسی کشاورزی – دانشگاه دهوک",
+            aboutHead: "{درباره من}",
+            about1: "در حال حاضر به دنبال فرصت‌هایی برای بهبود مهارت‌های خود و استفاده از آموخته‌های دانشگاهی در پروژه‌های محلی هستم تا تجربه عملی کسب کنم.",
+            about2: "من علاقه مندم که با تکنولوژی روز پیش بروم و از ابزارهای دیجیتال برای افزایش کارایی استفاده کنم.",
+            langHead: "{زبان‌ها}",
+            techHead: "{مهارت‌های فنی}",
+            linksHead: "{لینک‌های من}",
+            isRtl: true
+        }
+    };
+
+    function selectLanguage(lang) {
+        const data = translations[lang] || translations['en'];
+        const contentArea = document.getElementById('content-area');
+        const startScreen = document.getElementById('start-screen');
+        const bodyElement = document.body;        
+
+        document.getElementById('name').innerText = data.name;
+        document.getElementById('greeting').innerText = data.greeting;
+        document.getElementById('sub-info').innerText = data.subInfo;
+        document.getElementById('about-head').innerText = data.aboutHead;
+        document.getElementById('about-text1').innerText = data.about1;
+        document.getElementById('about-text2').innerText = data.about2;
+        document.getElementById('lang').innerText = data.langHead;
+        document.getElementById('tech').innerText = data.techHead;
+        document.getElementById('links').innerText = data.linksHead;
+
+        if (data.isRtl) {
+            contentArea.classList.add('rtl');
+            bodyElement.style.fontFamily = "'Vazirmatn', sans-serif";
+        } else {
+            contentArea.classList.remove('rtl');
+            bodyElement.style.fontFamily = "'Courier New', Courier, monospace";
+        }
+        
+        startScreen.style.opacity = '0';
+        setTimeout(() => {
+            startScreen.style.display = 'none';
+        }, 500);
+    }
+    </script>
 </body>
 </html>

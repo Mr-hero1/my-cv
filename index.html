@@ -4,7 +4,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         * {
-            margin: 2;
+            margin: 5px;
             padding: 0;
             box-sizing: border-box;
         }
@@ -12,16 +12,22 @@
         body, html {
             height: 100%;
             font-family: 'Courier New', Courier, monospace;
-            background-color: #1a1b26;
-            color: #a9b1d6;
+            background-color: #181825;
+            color: #bac2de;
             overflow-x: hidden;
+            scrollbar-width: none; 
+            -ms-overflow-style: none;
+        }
+        
+        body::-webkit-scrollbar {
+        display: none;
         }
 
         .top-box {
             height: 10vh;
-            width: 100%;
-            background-color: #24283b;
-            border: 2px solid #414868;
+            margin-bottom: 15px;
+            background-color: #181825;
+            border: 2px solid #9399b2;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -29,17 +35,13 @@
 
         .main-container {
             display: flex;
-            height: 85vh;
-            width: 100%;
+            min-height: 85vh;
         }
 
         .main-content {
-            width: 100%;
-            background-color: #16161e;
+            background-color: #181825;
             padding: 1ch;
-            border-left: 2px solid #414868;
-            border-right: 2px solid #414868;
-            border-bottom: 2px solid #414868;
+            border: 2px solid #9399b2;
         }
 
 				.lang-grid {
@@ -50,7 +52,7 @@
 				}
 
 				.label {
-						color: #f7768e;
+						color: #cba6f7;
 						font-weight: bold;
 				}
 
@@ -70,20 +72,21 @@
         }
 
         .action-link {
-            color: #7aa2f7;
+            color: #89b4fa;
             text-decoration: none;
-            border: 1px solid #7aa2f7;
+            border: 1px solid #89b4fa;
             padding: 1ch 2ch;
             transition: all 0.3s;
         }
 
         .action-link:hover {
-            background-color: #7aa2f7;
+            background-color: #89b4fa;
             color: #16161e;
         }
         
-        h1 { color: #7aa2f7; font-size: clamp(0rem, 6vw, 2rem); }
-        h2 { color: #f7768e; margin-bottom: 1ch; }
+        h1 { color: #cdd6f4; font-size: clamp(0rem, 6vw, 2rem); }
+        h2 { color: #cdd6f4; margin-bottom: 1ch; }
+        h3 { color: #cdd6f4; font-size: 1.2rem }
         p {  }
     </style>
 </head>
@@ -93,29 +96,29 @@
         <h1>> Hi ;)</h1>
     </div>
         <main class="main-content">
-            <h2>[Mohammed Abdulcareem Tiher]</h2>
+            <h2>Mohammed Abdulcareem Tiher</h2>
             <p>3rd Year Food Science & Technology Bachelor Student
-            College of Agricultural Engineering Sciences – [UNIVERSITY OF DUHOK]</p>
+            College of Agricultural Engineering Sciences – UNIVERSITY OF DUHOK</p>
 						
-            <h2>{About Me}</h2>
+            <h3>{About Me}</h3>
             <p>I am currently looking for opportunities to improve my skills and for ways to use what I’m learning in university to help out with local projects, gain some real-world experience, and contribute to the food industry in the region.</p>
             <p>I like to stay tech-savvy and use digital tools to make my work more efficient. I am also multilingual, which helps me research international standards and communicate with different teams</p>
-						<h2>{Languages}</h2>
-						<div class="lang-grid">
-								<div class="lang-item"><span class="label">KURDISH:</span> Native</div>
-								<div class="lang-item"><span class="label">ENGLISH:</span> Independent (Self-taught)</div>
-								<div class="lang-item"><span class="label">ARABIC:</span> Basic</div>
-								<div class="lang-item"><span class="label">PERSIAN:</span> Basic</div>
-						</div>
-						<h2>{Tech Skills}</h2>
-						<div class="lang-grid">
-								<div class="lang-item"><span class="label">WEB DEVELOPMENT:</span> (Self-taught)</div>
-								<div class="lang-item"><span class="label">LINUX & SCRIPTING:</span> (Self-taught)</div>
-						</div>
-						<footer class="link-footer">
-            <a href="https://linkedin.com" class="action-link">[ LINKEDIN ]</a>
-            <a href="https://github.com" class="action-link">[ GITHUB ]</a>
-            <a href="mailto:your@email.com" class="action-link">[ EMAIL ]</a>
+            <h3>{Languages}</h3>
+            <div class="lang-grid">
+                    <div class="lang-item"><span class="label">KURDISH:</span> Native</div>
+                    <div class="lang-item"><span class="label">ENGLISH:</span> Advanced (Self-taught)</div>
+                    <div class="lang-item"><span class="label">ARABIC:</span> Basic</div>
+                    <div class="lang-item"><span class="label">PERSIAN:</span> Basic</div>
+            </div>
+            <h3>{Tech Skills}</h3>
+            <div class="lang-grid">
+                    <div class="lang-item"><span class="label">WEB DEVELOPMENT</span></div>
+                    <div class="lang-item"><span class="label">LINUX & SCRIPTING</span></div>
+            </div>
+            <footer class="link-footer">
+            <a href="https://t.me/mr_uno" class="action-link">[ TELEGRAM ]</a>
+            <a href="https://github.com/Mr-hero1" class="action-link">[ GITHUB ]</a>
+            <a href="mailto:mohammed.at4623@stu.uod.ac" class="action-link">[ EMAIL ]</a>
             <a href="#" class="action-link">[ RESUME.PDF ]</a>
         </footer>
         </main>

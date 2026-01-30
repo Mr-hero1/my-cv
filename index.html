@@ -2,16 +2,22 @@
 <html>
 <head>
     <title>Mohammed Abdulcareem | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <style>
         * {
-            margin: 5px;
+            margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+		.top-box, .main-content, .link-footer {
+        margin: 10px;
+    	}
+		
         body, html {
             height: 100%;
             font-family: 'Courier New', Courier, monospace;
@@ -28,12 +34,13 @@
 
         #start-screen {
             position: fixed;
+			inset: 0;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             background-color: #181825;
-            z-index: 2; 
+            z-index: 999; 
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -132,6 +139,7 @@
             transition: all 0.3s;
         }
 		.action-link svg {
+		shape-rendering: crispedges;
         width: 1.2rem;
         height: 1.2rem;
         fill: currentColor;
@@ -142,14 +150,16 @@
             color: #16161e;
         }
         
+		.rtl {
+            direction: rtl;
+            text-align: right;
+        }
+		
         h1 { color: #a6e3a1; font-size: clamp(0rem, 6vw, 2rem); }
         h2 { color: #cdd6f4; margin-bottom: 1ch; }
         h3 { color: #cdd6f4; margin-bottom: 1ch; font-size: 1.2rem; }
         p  { margin-bottom: 1ch; }
-        .rtl {
-            direction: rtl;
-            text-align: right;
-        }
+
     </style>
 </head>
 <body>
@@ -281,7 +291,7 @@
         startScreen.style.opacity = '0';
         setTimeout(() => {
             startScreen.style.display = 'none';
-        }, 1100);
+        }, 500);
     }
     </script>
 </body>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         * {
@@ -25,6 +26,7 @@
 
         .top-box {
             height: 10vh;
+            width: calc(100% - 10px);
             margin-bottom: 15px;
             background-color: #181825;
             border: 2px solid #9399b2;
@@ -47,8 +49,9 @@
 				.lang-grid {
 						display: flex;
 						flex-wrap: wrap;
-						gap: 3ch; 
+						gap: 1.2ch; 
 						margin-top: 1ch;
+						margin-bottom: 1ch;
 				}
 
 				.label {
@@ -62,20 +65,25 @@
 						border-radius: 4px;
 				}
 
-				.link-footer {
+		.link-footer {
+            border: 2px solid #9399b2;
             margin-top: auto; 
-            padding-top: 2ch;
+            padding: 5px;
             display: flex;
             flex-wrap: wrap;
             gap: 2ch;
             justify-content: center;
+            align-items: center;
         }
 
         .action-link {
+        	display: inline-flex;
+            align-items: center;
+            gap: 10px;
             color: #89b4fa;
             text-decoration: none;
             border: 1px solid #89b4fa;
-            padding: 1ch 2ch;
+            padding: 1ch 1ch;
             transition: all 0.3s;
         }
 
@@ -84,10 +92,10 @@
             color: #16161e;
         }
         
-        h1 { color: #cdd6f4; font-size: clamp(0rem, 6vw, 2rem); }
+        h1 { color: #a6e3a1; font-size: clamp(0rem, 6vw, 2rem); }
         h2 { color: #cdd6f4; margin-bottom: 1ch; }
-        h3 { color: #cdd6f4; font-size: 1.2rem }
-        p {  }
+        h3 { color: #cdd6f4; margin-bottom: 1ch; font-size: 1.2rem; }
+        p  { margin-bottom: 1ch; }
     </style>
 </head>
 <body>
@@ -115,11 +123,12 @@
                     <div class="lang-item"><span class="label">WEB DEVELOPMENT</span></div>
                     <div class="lang-item"><span class="label">LINUX & SCRIPTING</span></div>
             </div>
+            <h3>{My links}</h3>
             <footer class="link-footer">
-            <a href="https://t.me/mr_uno" class="action-link">[ TELEGRAM ]</a>
-            <a href="https://github.com/Mr-hero1" class="action-link">[ GITHUB ]</a>
-            <a href="mailto:mohammed.at4623@stu.uod.ac" class="action-link">[ EMAIL ]</a>
-            <a href="#" class="action-link">[ RESUME.PDF ]</a>
+            <a href="https://t.me/mr_uno" class="action-link">[<i class="fa-brands fa-telegram"></i>]</a>
+            <a href="https://github.com/Mr-hero1" class="action-link">[<i class="fa-brands fa-github"></i>]</a>
+            <a href="mailto:mohammed.at4623@stu.uod.ac" class="action-link">[<i class="fa-solid fa-envelope"></i>]</a>
+            <a href="#" class="action-link">[<i class="fa-solid fa-file-pdf"></i>]</a>
         </footer>
         </main>
     </div>

@@ -16,16 +16,16 @@
         }
 
         .ibm-plex-sans-arabic-regular {
-  font-family: "IBM Plex Sans A;
-  00;
-  font-style: normal;
-}
-
-.ibm-plex-sans-arabic-bold {
-  font-family: "IBM Plex Sans Arabic", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-}
+          font-family: "IBM Plex Sans A" sans-serif;
+          font-weight: 400;
+          font-style: normal;
+        }
+        
+        .ibm-plex-sans-arabic-bold {
+          font-family: "IBM Plex Sans Arabic", sans-serif;
+          font-weight: 700;
+          font-style: normal;
+        }
 
                 .top-box, .main-content, .link-footer {
         margin: 10px;
@@ -399,12 +399,11 @@
         document.getElementById('p1-more').innerText = data.p1More;
         document.getElementById('p1-date').innerText = data.p1Date;
 
- if (data.isRtl) {
-    contentArea.classList.add('rtl');
-} else {
-    contentArea.classList.remove('rtl');
-}
-
+         if (data.isRtl) {
+            contentArea.classList.add('rtl');
+        } else {
+            contentArea.classList.remove('rtl');
+        }
 
         startScreen.style.opacity = '0';
         setTimeout(() => {

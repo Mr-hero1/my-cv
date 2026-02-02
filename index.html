@@ -115,7 +115,7 @@
         .lang-grid {
                 display: flex;
                 flex-wrap: wrap;
-                gap: 1.2ch; 
+                gap: 1.3ch; 
                 margin-top: 1ch;
                 margin-bottom: 2ch;
         }
@@ -158,38 +158,36 @@
             padding: 2px;
 			position: relative; 
     		overflow: hidden;
-            border: 2px solid #89b4fa;
+            border: 2px solid #9399b2;
             transition: all 0.5s ease;
         }
         .project-block h4 {
-			position: absolute;
-    		top: 15px;     
-    		left: 15px;     
-    		z-index: 2;  
+            justify-content: space-between;
 			pointer-events: none; 
-			background-color: #1e1e2e;     
-            padding: 4px 7px;             
-            border: 1px solid #89b4fa;     
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            padding: 3px 7px;             
+            box-shadow: 0 4px 15px rgba(0,0,0,1);
             color: #89b4fa; 
             margin-bottom: 12px;
             font-size: 1.1rem;
             display: flex;
-            align-items: left;
-        }
-        .project-block img {
-            height: 150px;         
-            width: 98%;
-            object-fit: cover;
-            margin: 5px auto;
-            margin-bottom: 8px;
-            display: block;
         }
         .project-block p {
+            justify-content: space-between;
             font-size: 0.95rem;
             line-height: 1.5;
             margin-left: 10px;
 			margin-right: 10px; 
+        }
+        .project-more {
+            display: inline-block;
+            font-size: 0.85rem;
+            color: #f5e0dc; 
+            font-weight: bold;           
+            opacity: 0;
+            transition: all 0.3s ease-in-out;
+        }
+        .project-block:hover .project-more  {
+            opacity: 1;
         }
         .project-block:hover {
         transform: translateY(-5px);
@@ -200,12 +198,13 @@
             padding-top: 20px;
         }
 		.link-footer {
+            font-family: 'Courier New', Courier, monospace !important;
             border: 2px solid #9399b2;
             margin: auto; 
             padding: 5px;
             display: flex;
             flex-wrap: wrap;
-            gap: 1ch;
+            gap: 5px;
             justify-content: center;
             align-items: center;
         }
@@ -216,20 +215,27 @@
             color: #89b4fa;
             text-decoration: none;
             border: 1px solid #89b4fa;
-            padding: 0.8ch 0.5ch;
+            padding: 8px 3px;
             transition: all 0.3s;
         }
 		.action-link svg {
-        width: 1.2rem;
-        height: 1.2rem;
-        fill: currentColor;
-        vertical-align: middle;
+            width: 1rem;
+            height: 1rem;
+            fill: currentColor;
+            vertical-align: middle;
+            flex-shrink: 0;
     	}
         .action-link:hover {
             background-color: #89b4fa;
             color: #16161e;
         }
-        
+
+        #line {
+            width: 100%;
+            margin: 1px 0; 
+            display: block;
+        }
+
 		.rtl {
             direction: rtl;
             text-align: right;
@@ -237,14 +243,8 @@
 		
         h1 { color: #a6e3a1; font-size: clamp(1.5rem, 6vw, 2rem); }
         h2 { color: #cba6f7; margin-bottom: 1ch; }
-        h3 {margin-bottom: 1ch; font-size: 1.2rem; }
-        p  { margin-bottom: 1ch; }
-
-        #about-head {color: #eba0ac; }
-        #lang {color: #f9e2af; }
-        #tech {color: #94e2d5; }
-        #projects-head {color: #74c7ec; }
-        #links {color: #b4befe; }
+        h3 {margin-bottom: 1ch; margin-top: 1ch; font-size: 1.2rem; }
+        p  { margin-bottom: 0.5ch; }
         
     </style>
 </head>
@@ -265,35 +265,41 @@
             <h2 id="name"></h2>
             <p id="sub-info"></p>
 						
-            <h3 id="about-head"></h3>
+            <h3 id="about-head" style="color: #eba0ac;"></h3>
             <p id="about-text1"></p>
             <p id="about-text2"></p>
-            <h3 id="lang"></h3>
+            <h3 id="Skills" style="color: #f9e2af;"></h3>
             <div class="lang-grid">
-                    <div class="lang-item"><span class="label">KURDISH:</span> Native</div>
-                    <div class="lang-item"><span class="label">ENGLISH:</span> Advanced (Self-taught)</div>
-                    <div class="lang-item"><span class="label">ARABIC:</span> Basic</div>
-                    <div class="lang-item"><span class="label">PERSIAN:</span> Basic</div>
-            </div>
-            <h3 id="tech"></h3>
-            <div class="lang-grid">
-                    <div class="lang-item"><span class="label">WEB DEVELOPMENT</span></div>
-                    <div class="lang-item"><span class="label">LINUX & SCRIPTING</span></div>
+                    <div class="lang-item"><span class="label">Kurdish:</span> Native</div>
+                    <div class="lang-item"><span class="label">English:</span> Advanced (Self-taught)</div>
+                    <div class="lang-item"><span class="label">Arabic:</span> Basic</div>
+                    <div class="lang-item"><span class="label">Persian:</span> Basic</div>
+                    <p id="line"></p>
+                    <div class="lang-item"><span class="label">html</span></div>
+                    <div class="lang-item"><span class="label">css</span></div>
+                    <div class="lang-item"><span class="label">libreoffice</span></div>
+                    <div class="lang-item"><span class="label">inkscape</span></div>
+                    <div class="lang-item"><span class="label">Linux</span></div>
             </div>
             
-            <h3 id="projects-head"></h3>
+            <h3 id="projects-head" style="color: #74c7ec;"></h3>
             <div class="project-container">
                 <a href="https://github.com/Mr-hero1/my-cv" class="project-link" target="_blank">
                     <div class="project-block">
-                        <h4 id="p1-title"></h4>
-                        <img src="images/p1preview.png" alt="">
-                        <p id="p1-desc"></p>
+                        <h4>
+                            <span id="p1-title"></span> 
+                            <span class="project-date" id="p1-date"></span>
+                        </h4>
+                        <p>
+                            <span id="p1-desc"></span>
+                            <span class="project-more" id="p1-more"> </span>
+                        </p>
                     </div>
                 </a>
             </div>
 
             </div>
-           <h3 id="links"></h3>
+           <h3 id="links" style="color: #b4befe;"></h3>
            <footer class="link-footer">
             <a href="https://www.linkedin.com/in/mohammed-abdulkareem-88a0263aa" class="action-link" aria-label="LinkedIn">
                 [<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill="currentColor"/></svg>]
@@ -316,15 +322,16 @@
             greeting: "> Hi ;)",
             name: "# Mohammed Abdulcareem Tiher",
             subInfo: "3rd Year Food Science & Technology Bachelor Student\nCollege of Agricultural Engineering Sciences – UNIVERSITY OF DUHOK",
-            aboutHead: "# About Me",
+            aboutHead: "## About Me",
             about1: "I am currently looking for opportunities to improve my skills and for ways to use what I’m learning in university to help out with local projects, gain some real-world experience, and contribute to the food industry in the region.",
             about2: "I like to stay tech-savvy and use digital tools to make my work more efficient. I am also multilingual, which helps me research international standards and communicate with different teams",
-            langHead: "# Languages",
-            techHead: "# Tech Skills",
-            projectsHead: "# Projects",
-            p1Title: "[ Portfolio ]",
+            skillsHead: "## My Skills",
+            projectsHead: "## Projects",
+            p1Title: "Portfolio",
+            p1Date: "2026/2/2",
             p1Desc: "This page is my first complete project.",
-            linksHead: "# My links",
+            p1More: "More...",
+            linksHead: "## My links",
             
             
             isRtl: false
@@ -333,45 +340,48 @@
             greeting: "> سڵاو ;)",
             name: "# محمد عبدالكريم طاهر",
             subInfo: "قوتابی قۆناغا سیێ پشکا زانستێن خوارنێ و تەکنەلۆجیا\nکۆلیژا ئەندازیاریا چاندنێ – زانکۆیا دهۆکێ",
-            aboutHead: "# دەربارەی من",
+            aboutHead: "## دەربارەی من",
             about1: "ئەز نوکە ل دەرفەتان دگەڕێم دا کو شیانێن خۆ پێش بێخەم و ئەو تشتێن ل زانکۆیێ وەردگرم د پرۆژێن خۆجهی دا بکاربینم، بۆ بدەستڤەئینانا ئەزموونا کارێن جیهانی.",
             about2: "حەز دکەم شارەزا بم د بوارێ تەکنەلۆجیایێ دا و ئامرازێن دیجیتاڵی بکاربینم بۆ کاراتربوونا کارێن خۆ. هەروەسا ئەز چەند زمانان دزانم کو یارمەتیدەرن بۆ لێکۆڵینەڤەیێن نێڤدەولەتی.",
-            langHead: "# زمان",
-            techHead: "# شیانێن تەکنیکی",
-            projectsHead: "# پڕۆژەکان",
-            p1Title: "[ پۆرتفۆلیۆ ]",
+            skillsHead: "## شیانێن من",
+            projectsHead: "## پڕۆژەکان",
+            p1Title: "پۆرتفۆلیۆ",
+            p1Date: "٢٠٢٦/٢/٢",
             p1Desc: "ئەم پەڕەیە یەکەم پڕۆژەی تەواوکراوی منە.",
-            linksHead: "# لینکێن من",
+            p1More: "زێدەتر...",
+            linksHead: "## لینکێن من",
             isRtl: true
         },
         ar: {
             greeting: "> مرحباً ;)",
             name: "# محمد عبدالكريم طاهر",
             subInfo: "طالب السنة الثالثة في علوم الأغذية وتكنولوجياتها\nكلية الهندسة الزراعية – جامعة دهوك",
-            aboutHead: "# عني",
+            aboutHead: "## عني",
             about1: "أبحث حالياً عن فرص لتطوير مهاراتي واستخدام ما أتعلمه في الجامعة للمساهمة في المشاريع المحلية، واكتساب الخبرة العملية في صناعة الأغذية.",
             about2: "أحب مواكبة التكنولوجيا واستخدام الأدوات الرقمية لجعل عملي أكثر كفاءة. كما أنني أتحدث لغات متعددة مما يساعدني في البحث عن المعايير الدولية.",
-            langHead: "# اللغات",
-            techHead: "# المهارات التقنية",
-            projectsHead: "# المشاريع",
-            p1Title: "[ الموقع الشخصي ]",
+            skillsHead: "## مهاراتي",
+            projectsHead: "## المشاريع",
+            p1Title: "الموقع الشخصي",
+            p1Date: "٢٠٢٦/٢/٢",
             p1Desc: "هذه الصفحة هي أول مشروع متكامل قمت ببنائه.",
-            linksHead: "# روابطي",
+            p1More: "المزيد...",
+            linksHead: "## روابطي",
             isRtl: true
         },
         fa: {
             greeting: "> سلام ;)",
             name: "# محمد عبدالكريم طاهر",
             subInfo: "دانشجوی سال سوم علوم و مهندسی صنایع غذایی\nدانشکده مهندسی کشاورزی – دانشگاه دهوک",
-            aboutHead: "# درباره من",
+            aboutHead: "## درباره من",
             about1: "در حال حاضر به دنبال فرصت‌هایی برای بهبود مهارت‌های خود و استفاده از آموخته‌های دانشگاهی در پروژه‌های محلی هستم تا تجربه عملی کسب کنم.",
             about2: "من علاقه مندم که با تکنولوژی روز پیش بروم و از ابزارهای دیجیتال برای افزایش کارایی استفاده کنم.",
-            langHead: "# زبان‌ها",
-            techHead: "# مهارت‌های فنی",
-            projectsHead: "# پروژه‌ها",
-            p1Title: "[ پورتفولیو ]",
+            skillsHead: "## مهارت‌های من",
+            projectsHead: "## پروژه‌ها",
+            p1Title: "پورتفولیو",
+            p1Date: "٢٠٢٦/٢/٢",
             p1Desc: "این صفحه اولین پروژه کامل من است.",
-            linksHead: "# لینک‌های من",
+            p1More: "بیشتر...",
+            linksHead: "## لینک‌های من",
             isRtl: true
         }
     };
@@ -388,12 +398,13 @@
         document.getElementById('about-head').innerText = data.aboutHead;
         document.getElementById('about-text1').innerText = data.about1;
         document.getElementById('about-text2').innerText = data.about2;
-        document.getElementById('lang').innerText = data.langHead;
-        document.getElementById('tech').innerText = data.techHead;
+        document.getElementById('Skills').innerText = data.skillsHead;
         document.getElementById('links').innerText = data.linksHead;
         document.getElementById('projects-head').innerText = data.projectsHead;
         document.getElementById('p1-title').innerText = data.p1Title;
         document.getElementById('p1-desc').innerText = data.p1Desc;
+        document.getElementById('p1-more').innerText = data.p1More;
+        document.getElementById('p1-date').innerText = data.p1Date;
 
         if (data.isRtl) {
             contentArea.classList.add('rtl');
